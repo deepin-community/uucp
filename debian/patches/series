@@ -1,0 +1,11 @@
+spelling.patch
+manpage.patch
+uucp-org.patch
+compiler-warnings.patch
+
+option-to-not-force-hw-control.patch
+no-sleep.patch
+
+wait-for-correct-parent.patch
+
+improved-pipe.patch

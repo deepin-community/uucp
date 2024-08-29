@@ -1,5 +1,6 @@
 Description: remove compiler warnings that nowadays result in errors
 Author: Thorsten Alteholz <debian@alteholz.de>
+Forwarded: not-needed
 Index: uucp/uuconv.c
 ===================================================================
 --- uucp.orig/uuconv.c	2013-04-26 16:06:16.000000000 +0200

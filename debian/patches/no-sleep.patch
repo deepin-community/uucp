@@ -1,5 +1,6 @@
 Description: avoid sleeps
 Author: Frank Heckenbach
+Forwarded: not-needed
 Index: uucp-1.07/prott.c
 ===================================================================
 --- uucp-1.07.orig/prott.c	2017-09-27 12:24:15.963165757 +0200

@@ -1,0 +1,98 @@
+Index: uucp/unix/lock.c
+Description: fix for gcc14 issues
+===================================================================
+--- uucp.orig/unix/lock.c	2024-07-28 13:54:18.273417216 +0200
++++ uucp/unix/lock.c	2024-07-28 13:56:30.949496276 +0200
+@@ -99,13 +99,13 @@
+   int o;
+ #if HAVE_QNX_LOCKFILES
+   nid_t inme;
+-  char ab[23];
++  char ab[128];
+   char *zend;
+ #else
+ #if HAVE_V2_LOCKFILES
+   int i;
+ #else
+-  char ab[12];
++  char ab[128];
+ #endif
+ #endif
+   int cwrote;
+@@ -221,7 +221,8 @@
+       pid_t ipid;
+       boolean freadonly;
+       struct stat st;
+-      char abtime[sizeof "1991-12-31 12:00:00"];
++      //XXX char abtime[sizeof "1991-12-31 12:00:00"];
++      char abtime[128];
+ #if HAVE_QNX_LOCKFILES
+       nid_t inid;
+ #endif
+@@ -277,7 +278,7 @@
+ #if DEBUG > 0
+ #if HAVE_V2_LOCKFILES
+       {
+-	char ab[10];
++	char ab[128];
+ 
+ 	if (read (o, ab, sizeof ab) > 4
+ 	    && isdigit (BUCHAR (ab[0])))
+Index: uucp/unix/pipe.c
+===================================================================
+--- uucp.orig/unix/pipe.c	2024-07-28 13:54:18.273417216 +0200
++++ uucp/unix/pipe.c	2024-07-28 13:57:49.845543257 +0200
+@@ -236,14 +236,16 @@
+ {
+   struct ssysdep_conn *q;
+   int aidescs[3];
+-  const char **pzprog;
++  //XXX const char **pzprog;
++  char **pzprog;
+   char **p;
+ 
+   q = (struct ssysdep_conn *) qconn->psysdep;
+ 
+   *ptdialer = DIALERFOUND_FALSE;
+ 
+-  pzprog = (const char **) qconn->qport->uuconf_u.uuconf_spipe.uuconf_pzcmd;
++  //XXX pzprog = (const char **) qconn->qport->uuconf_u.uuconf_spipe.uuconf_pzcmd;
++  pzprog = qconn->qport->uuconf_u.uuconf_spipe.uuconf_pzcmd;
+ 
+   if (pzprog == NULL)
+     {
+@@ -267,7 +269,7 @@
+ 
+   /* Pass fkeepuid, fkeepenv and fshell as TRUE.  This puts the
+      responsibility of security on the connection program.  */
+-  q->ipid = ixsspawn (pzprog, aidescs, TRUE, TRUE, (const char *) NULL,
++  q->ipid = ixsspawn ((const char **)pzprog, aidescs, TRUE, TRUE, (const char *) NULL,
+ 		      FALSE, TRUE, (const char *) NULL,
+ 		      (const char *) NULL, (const char *) NULL);
+   if (q->ipid < 0)
+Index: uucp/unix/portnm.c
+===================================================================
+--- uucp.orig/unix/portnm.c	2024-07-28 13:35:39.584912452 +0200
++++ uucp/unix/portnm.c	2024-07-28 14:05:10.577805365 +0200
+@@ -32,7 +32,7 @@
+ 
+ #if HAVE_TCP
+   {
+-    size_t clen;
++    socklen_t clen;
+     struct sockaddr s;
+ 
+     clen = sizeof (struct sockaddr);
+Index: uucp/unix/tcp.c
+===================================================================
+--- uucp.orig/unix/tcp.c	2024-07-28 13:54:18.189417166 +0200
++++ uucp/unix/tcp.c	2024-07-28 16:50:28.150245787 +0200
+@@ -396,7 +396,7 @@
+   while (! FGOT_SIGNAL ())
+     {
+       sockaddr_storage speer;
+-      size_t clen;
++      socklen_t clen;
+       int onew;
+       pid_t ipid;
+ 

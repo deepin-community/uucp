@@ -3,6 +3,7 @@ Description:
  remove ATTRIBUTE_UNUSED of the parameter uucp-org.patch uses
  add the possibility to send the system name to be called in pipe command
  (use \Z as place holder for the system name)
+Forwarded: not-needed
 Index: uucp-1.07/unix/pipe.c
 ===================================================================
 --- uucp-1.07.orig/unix/pipe.c	2019-08-17 23:06:47.774519770 +0200

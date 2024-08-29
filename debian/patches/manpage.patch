@@ -1,5 +1,6 @@
 Description: lintian detects some issues with these manpages
 Author: Thorsten Alteholz <debian@alteholz.de>
+Forwarded: not-needed
 Index: uucp-1.07/contrib/uurate.man
 ===================================================================
 --- uucp-1.07.orig/contrib/uurate.man	2019-01-12 19:51:27.939352539 +0100

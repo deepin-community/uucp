@@ -9,3 +9,6 @@ no-sleep.patch
 wait-for-correct-parent.patch
 
 improved-pipe.patch
+configure.patch
+implicit.patch
+gcc14.patch

@@ -1,5 +1,6 @@
 Description: avoid forcing hw control
 Author: Michal Suchanek
+Forwarded: not-needed
 Index: uucp-1.07/conn.h
 ===================================================================
 --- uucp-1.07.orig/conn.h	2013-12-04 11:20:23.722208868 +0100

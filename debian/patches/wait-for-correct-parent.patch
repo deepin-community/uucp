@@ -1,5 +1,6 @@
 Description: wait for correct parent to die
 Author: Jörg Sommer <joerg@jo-so.de>
+Forwarded: not-needed
 Index: uucp-1.07/unix/detach.c
 ===================================================================
 --- uucp-1.07.orig/unix/detach.c	2019-03-02 16:36:11.238947732 +0100

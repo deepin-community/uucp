@@ -1,5 +1,6 @@
 Author: Thorsten Alteholz <debian@alteholz.de>
 Description: correct spelling error in binary
+Forwarded: not-needed
 Index: uucp-1.07/cu.c
 ===================================================================
 --- uucp-1.07.orig/cu.c	2019-01-12 19:50:00.447355162 +0100

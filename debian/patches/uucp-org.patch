@@ -1,5 +1,6 @@
 Description: Changes from previous version
  This patch contains all changes from previous versions.
+Forwarded: not-needed
 Author: Thorsten Alteholz <debian@alteholz.de>
 --- uucp-1.07.orig/uucico.c
 +++ uucp-1.07/uucico.c

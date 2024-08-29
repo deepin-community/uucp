@@ -1,3 +1,26 @@
+uucp (1.07-30) unstable; urgency=medium
+
+  * fix issues with gcc14 (Closes: #1075610)
+
+ -- Thorsten Alteholz <debian@alteholz.de>  Sun, 28 Jul 2024 13:00:00 +0200
+
+uucp (1.07-29) unstable; urgency=medium
+
+  * take care of implicit function declaration (Closes: #1066434)
+    (this even affects the configure script)
+
+ -- Thorsten Alteholz <debian@alteholz.de>  Fri, 12 Apr 2024 22:00:00 +0200
+
+uucp (1.07-28) unstable; urgency=medium
+
+  * Fix FTBFS when dh_installsystemd moves units to /usr
+    Thanks to Helmut Grohne for the patch
+    (Closes: #1052716)
+  * debian/control: bump standard to 4.6.2 (no changes)
+  * debian/patches: no need to forward them to upstream
+
+ -- Thorsten Alteholz <debian@alteholz.de>  Tue, 03 Oct 2023 18:00:00 +0200
+
 uucp (1.07-27) unstable; urgency=medium
 
   * add improved-pipe.patch to be able to replace the placeholder \Z

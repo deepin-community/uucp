@@ -2,13 +2,14 @@ Source: uucp
 Section: comm
 Priority: optional
 Maintainer: Thorsten Alteholz <debian@alteholz.de>
-Build-Depends: debhelper (>= 11)
+Build-Depends: debhelper-compat (= 12)
 	, texinfo
 	, libpam-dev
-Standards-Version: 4.3.0
+Standards-Version: 4.6.2
 Homepage: http://airs.com/ian/uucp.html
 Vcs-Browser: https://salsa.debian.org/alteholz/uucp
 Vcs-Git: https://salsa.debian.org/alteholz/uucp.git
+Rules-Requires-Root: binary-targets
 
 Package: uucp
 Architecture: any

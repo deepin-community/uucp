@@ -112,8 +112,8 @@ override_dh_auto_install:
 	#
 	dh_movefiles -p cu --sourcedir=debian/uucp
 
-
-override_dh_installsystemd:
-	dh_installsystemd
-	# we come from an inetd service, so we have to set accept=yes in uucp.socket and such require the @
-	mv `pwd`/debian/uucp/lib/systemd/system/uucp.service `pwd`/debian/uucp/lib/systemd/system/uucp@.service
+# we now directly use the name of the service file
+#override_dh_installsystemd:
+#	dh_installsystemd
+#	# we come from an inetd service, so we have to set accept=yes in uucp.socket and such require the @
+#	mv `pwd`/debian/uucp/lib/systemd/system/uucp.service `pwd`/debian/uucp/lib/systemd/system/uucp@.service
